@@ -83,8 +83,8 @@ DATABASES = {
         'NAME': 'estore',
         'USER': 'postgres',
         'PASSWORD': '123',
-        'HOST': 'localhost',  # Обычно 'localhost', если база данных находится на том же сервере
-        'PORT': '5432',  # Обычно '5432' для PostgreSQL
+        'HOST': 'localhost',  
+        'PORT': '5432', 
     }
 }
 
@@ -110,8 +110,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
+# en-us
 
 TIME_ZONE = 'UTC'
 
