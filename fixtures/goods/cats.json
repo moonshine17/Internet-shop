@@ -1,0 +1,122 @@
+[
+    {
+        "model": "goods.categories",
+        "pk": 5,
+        "fields": {
+            "name": "Все товары",
+            "slug": "all"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 6,
+        "fields": {
+            "name": "Строительные материалы",
+            "slug": "stroitelnye-materialy"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 7,
+        "fields": {
+            "name": "Отопительное оборудование",
+            "slug": "otopitelnoe-oborudovanie"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 8,
+        "fields": {
+            "name": "Наружная отделка",
+            "slug": "naruzhnaya-otdelka"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 9,
+        "fields": {
+            "name": "Внутренняя отделка",
+            "slug": "vnutrennyaya-otdelka"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 10,
+        "fields": {
+            "name": "Инструмент и оборудование",
+            "slug": "instrument-i-oborudovanie"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 11,
+        "fields": {
+            "name": "Метизы и крепеж",
+            "slug": "metizy-i-krepezh"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 12,
+        "fields": {
+            "name": "Электрика и освещение",
+            "slug": "elektrika-i-osveshenie"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 13,
+        "fields": {
+            "name": "Напольные покрытия",
+            "slug": "napolnye-pokrytiya"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 14,
+        "fields": {
+            "name": "Сантехника",
+            "slug": "santehnika"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 16,
+        "fields": {
+            "name": "Кровельные материалы",
+            "slug": "krovelnye-materialy"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 17,
+        "fields": {
+            "name": "Водоснабжение и канализация",
+            "slug": "vodosnabzhenie-i-kanalizaciya"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 18,
+        "fields": {
+            "name": "Хозяйственные товары",
+            "slug": "hozyajstvennye-tovary"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 19,
+        "fields": {
+            "name": "Средства индивидуальной защиты",
+            "slug": "sredstva-individualnoj-zashity"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 20,
+        "fields": {
+            "name": "Вентиляция и кондиционирование",
+            "slug": "ventilyaciya-i-kondicionirovanie"
+        }
+    }
+]
