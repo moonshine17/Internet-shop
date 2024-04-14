@@ -9,8 +9,7 @@ def index(request):
 
     context = {
         'title': 'Home',
-        'content': 'Магазин строительных товаров OLI',
-        
+        'content': 'Магазин строительных товаров OLI',  
     }
 
     return render(request, 'main/index.html', context)
