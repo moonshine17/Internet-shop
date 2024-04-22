@@ -70,9 +70,10 @@
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="{% url "catalog:search" %}" method="get">
-                        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search" value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}">
                         <button class="btn btn-outline-success text-white" type="submit">Поиск</button>
-                    </form> 
+                    </form>
+                    
                 </div>
             </div>
         </nav>

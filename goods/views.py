@@ -13,7 +13,8 @@ def catalog(request, category_slug=None):
     on_sale = request.GET.get('on_sale', None)
     order_by = request.GET.get('order_by', None)
     query = request.GET.get('q', None)
-    
+    if not query:  # Если запрос пустой
+        query = "#"  # Заменяем пустую строку на "пусто"
 
     if category_slug == "all":
         goods = Products.objects.all()

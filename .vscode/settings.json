@@ -1,6 +1,6 @@
 {
     "git.autoRepositoryDetection": "subFolders",
-    "breadcrumbs.enabled": true,
+    "breadcrumbs.enabled": false,
 
     "debug.autoExpandLazyVariables": true,
     "debug.inlineValues": "on",
