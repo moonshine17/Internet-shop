@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
 
     "debug_toolbar",
 
@@ -85,8 +86,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'estore',
-        'USER': 'postgres',
-        'PASSWORD': '123',
+        'USER': 'home',
+        'PASSWORD': 'home',
         'HOST': 'localhost',  
         'PORT': '5432', 
     }
