@@ -10,13 +10,8 @@ from goods.models import Products
 
 
 def q_search(query):
-    if not query:
-        # Если запрос пустой, задайте слово-заглушку для поиска
-        query = "пустой"
-        
     if query.isdigit() and len(query) <= 5:
         return Products.objects.filter(id=int(query))
-
     
 
     vector = SearchVector("name", "description")

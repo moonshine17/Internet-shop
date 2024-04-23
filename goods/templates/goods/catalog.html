@@ -1,4 +1,4 @@
-{% extends "main/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% load goods_tags %}
 
@@ -50,14 +50,11 @@
         </div>
 
             {% if request.GET.q %}
-            <h3 class="mt-4">Результаты поиска по запросу {{ request.GET.q }}</h3>
+                <h3 class="mt-4">Результаты поиска по запросу {{ request.GET.q }}</h3>
             {% if not goods %}
                 <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
                 <h2 class="mt-4">По запросу ничего не найдено</h2>
             {% endif %}
-            {% else %}
-                <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
-                <h2 class="mt-4">По запросу ничего не найдено</h2>
             {% endif %}
     
             {% for product in goods %}
