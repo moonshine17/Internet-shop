@@ -1,23 +1,38 @@
+from django.contrib import auth
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
+
+from users.forms import UserLoginForm
+
 
 # Create your views here.
 def login(request):
-    context = {
-        'title': 'OLI - Авторизация'
-    }
-    return render(request, 'users/login.html', context)
+    if request.method == "POST":
+        form = UserLoginForm(data=request.POST)
+        if form.is_valid():
+            username = request.POST["username"]
+            password = request.POST["password"]
+            user = auth.authenticate(username=username, password=password)
+            if user:
+                auth.login(request, user)
+                return HttpResponseRedirect(reverse("main:index"))
+    else:
+        form = UserLoginForm()
+
+    context = {"title": "OLI - Авторизация", "form": form}
+
+    return render(request, "users/login.html", context)
+
 
 def registration(request):
-    context = {
-        'title': 'OLI - Регистрация'
-    }
-    return render(request, 'users/registration.html', context)
+    context = {"title": "OLI - Регистрация"}
+    return render(request, "users/registration.html", context)
+
 
 def profile(request):
-    context = {
-        'title': 'OLI - Профиль'
-    }
-    return render(request, 'users/profile.html', context)
+    context = {"title": "OLI - Профиль"}
+    return render(request, "users/profile.html", context)
 
-def logout(request):
-    ...
+
+def logout(request): ...
