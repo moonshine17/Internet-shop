@@ -17,14 +17,9 @@ def login(request):
             password = request.POST['password']
             user = auth.authenticate(username=username, password=password)
 
-            session_key = request.session.session_key
-
             if user:
                 auth.login(request, user)
                 messages.success(request, f"{username}, Вы вошли в аккаунт")
-
-                # if session_key:
-                #     Cart.objects.filter(session_key=session_key).update(user=user)
 
                 redirect_page = request.POST.get('next', None)
                 if redirect_page and redirect_page != reverse('user:logout'):
@@ -35,7 +30,7 @@ def login(request):
         form = UserLoginForm()
 
     context = {
-        'title': 'OLI - Авторизация',
+        'title': 'Home - Авторизация',
         'form': form
     }
     return render(request, 'users/login.html', context)
@@ -66,7 +61,7 @@ def profile(request):
         form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, f"Профиль успешно обновлен")
+            messages.success(request, "Профиль успешно обновлен")
             return HttpResponseRedirect(reverse('user:profile'))
     else:
         form = ProfileForm(instance=request.user)
