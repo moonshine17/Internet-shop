@@ -33,7 +33,7 @@
                     </div>
                     <div class="col p-0"><strong> {{ cart.products_price }} $</strong></div>
                     <div class="col p-0">
-                        <a href="{% url "cart:cart_remove" 1 %}" class="remove-from-cart"
+                        <a href="{% url "cart:cart_remove" cart.id %}" class="remove-from-cart"
                         data-cart-id="{{ cart.id }}">
                             {% csrf_token %}
                             <img class="mx-1" src="{% static "deps/icons/trash3-fill.svg" %}"
