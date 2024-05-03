@@ -2,6 +2,11 @@
 {% load static %}
 {% load goods_tags %}
 
+{% block model_cart %}
+	{% include 'includes/cart_button.html' %}
+{% endblock %}
+
+
 {% block content %}
     <!-- Контент на странице -->
     <div class="row">
@@ -14,10 +19,10 @@
 
             <form action=" {% if request.Get.q %}{% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
                 <div class="form-check text-white mx-3">
-                    <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" 
+                    <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on"
                     {% if request.GET.on_sale == "on" %}checked{% endif %}>
                     {% if request.Get.q %}
-                    <input type="hidden" name="q" value="{{ request.GET.q }}"> 
+                    <input type="hidden" name="q" value="{{ request.GET.q }}">
                     {% endif %}
                     <label class="form-check-label" for="flexCheckDefault">
                         Товары по акции
@@ -25,22 +30,22 @@
                 </div>
                 <p class="text-white mx-3 mt-3">Сортировать:</p>
                 <div class="form-check text-white mx-3">
-                    <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default" 
+                    <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default"
                     {% if not request.GET.order_by or request.GET.order_by == 'default' %}checked{% endif %}>
                     <label class="form-check-label" for="flexRadioDefault1">
                         По умолчанию
                     </label>
                 </div>
                 <div class="form-check text-white mx-3">
-                    <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2" value="price" value="on" 
+                    <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2" value="price" value="on"
                     {% if request.GET.order_by == "price" %}checked{% endif %}>
                     <label class="form-check-label" for="flexRadioDefault2">
                         От дешевых к дорогим
                     </label>
                 </div>
                 <div class="form-check text-white mx-3">
-                    <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3" value="-price" 
-                    {% if request.GET.order_by == "-price" %}checked{% endif %}> 
+                    <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3" value="-price"
+                    {% if request.GET.order_by == "-price" %}checked{% endif %}>
                     <label class="form-check-label" for="flexRadioDefault3">
                         От дорогих к дешевым
                     </label>
@@ -56,7 +61,7 @@
                 <h2 class="mt-4">По запросу ничего не найдено</h2>
             {% endif %}
             {% endif %}
-    
+
             {% for product in goods %}
             <!-- Карта товара -->
             <div class="col-lg-4 col-md-6 p-4">
@@ -86,21 +91,24 @@
                         <p class="product_id">id: {{ product.display_id }}</p>
                         <div class="d-flex justify-content-between">
                             {% if product.discount %}
-                                <p><s>{{ product.price }}</s> $</p>
-                                <p><strong>{{ product.total_price }} $</strong></p>
-                                <span class="badge bg-warning text-dark">Скидка {{ product.discount }} %</span> 
-                            {% else %}
-                                <p><strong>{{ product.price }} $</strong></p>
-                            {% endif %}
-                            <a href="#" class="btn add-to-cart">
-                                <img class="mx-1" src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
-                                    width="32" height="32">
-                            </a>
-                        </div>
+                            <p><s>{{product.price}}</s> $</p>
+                            <p><strong>{{ product.sell_price }} $</strong></p>
+                            <span class="badge bg-warning text-dark">Скидка {{ product.discount }} %</span>
+                        {% else %}
+                            <p><strong>{{ product.price }} $</strong></p>
+                        {% endif %}
+
+                        <a href="{% url "cart:cart_add" product.slug %}" class="btn add-to-cart"
+                        data-product-id="{{ product.id }}">
+                            {% csrf_token %}
+                            <img class="mx-1" src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
+                                width="32" height="32">
+                        </a>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+        </div>
+    {% endfor %}
 
     </div>
     <!-- Пагинация -->
@@ -137,7 +145,7 @@
 {% block footer %}
     <footer class="py-4 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Home Python Hub Studio 2023</p>
+            <p class="m-0 text-center text-white">Copyright &copy; Udovichenko N 2024</p>
         </div>
     </footer>
 {% endblock footer %}
