@@ -72,6 +72,9 @@ def profile(request):
     }
     return render(request, "users/profile.html", context)
 
+def users_cart(request):
+    return render(request, "users/users_cart.html")
+
 
 @login_required
 def logout(request):
@@ -80,5 +83,3 @@ def logout(request):
     return redirect(reverse('main:index'))
 
 
-def users_cart(request):
-    return render(request, "users/users_cart.html")
