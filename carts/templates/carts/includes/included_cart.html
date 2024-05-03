@@ -12,17 +12,17 @@
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-dark btn-sm decrement"
-                                    data-cart-id="{{ cart.id }}"
-                                    data-cart-change-url="">
+                                        data-cart-id="{{ cart.id }}"
+                                        data-cart-change-url="">
                                     {% csrf_token %}
                                     -</button>
                             </span>
                             <input type="text" class="form-control number" value="{{ cart.quantity }}"
-                                readonly>
+                                   readonly>
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-dark btn-sm increment"
-                                    data-cart-id="{{ cart.id }}"
-                                    data-cart-change-url="">
+                                        data-cart-id="{{ cart.id }}"
+                                        data-cart-change-url="">
                                     {% csrf_token %}
                                     +</button>
                             </span>
@@ -34,10 +34,10 @@
                     <div class="col p-0"><strong> {{ cart.products_price }} $</strong></div>
                     <div class="col p-0">
                         <a href="{% url "cart:cart_remove" cart.id %}" class="remove-from-cart"
-                        data-cart-id="{{ cart.id }}">
+                           data-cart-id="{{ cart.id }}">
                             {% csrf_token %}
                             <img class="mx-1" src="{% static "deps/icons/trash3-fill.svg" %}"
-                                alt="Catalog Icon" width="16" height="16">
+                                 alt="Catalog Icon" width="16" height="16">
                         </a>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
         <h4 class="float-left"><strong>{{ carts.total_price }} $</strong></h4>
     </div>
 </div>
-{% if carts and not orders%}
+{% if carts and not orders %}
     <a class="btn btn-dark" href="">
         Оформить заказ
     </a>
