@@ -41,7 +41,7 @@
                             {% endif %}
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="id_phone_number" class="form-label">Номер телефона*:</label>
+                            <label id="id_phone_number"  for="id_phone_number" class="form-label">Номер телефона*:</label>
                             <input type="text" class="form-control" id="id_phone_number" name="phone_number"
                                 value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
                                 placeholder="В формате: XXX-XXX-XX-XX"
@@ -100,3 +100,12 @@
     </div>
 </div>
 {% endblock  %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/jquery.inputmask.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Применяем маску к полю номера телефона
+        $('#id_phone_number').inputmask('+7(999)-999-99-99');
+    });
+</script>

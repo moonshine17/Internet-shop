@@ -24,7 +24,7 @@ def cart_add(request):
 
     else:
         cart = Cart.objects.filter(
-            session_key=request.session.session_key,product=product
+            session_key=request.session.session_key, product=product
         )
         if cart.exists():
             cart = cart.first()
@@ -35,7 +35,6 @@ def cart_add(request):
             Cart.objects.create(
                 session_key=request.session.session_key, product=product, quantity=1
             )
-
 
     user_cart = get_user_carts(request)
     cart_items_html = render_to_string(
@@ -73,6 +72,7 @@ def cart_change(request):
 
     return JsonResponse(response_data)
 
+
 def cart_remove(request):
     cart_id = request.POST.get('cart_id')
     cart = Cart.objects.get(id=cart_id)
@@ -91,3 +91,5 @@ def cart_remove(request):
     }
 
     return JsonResponse(response_data)
+
+
