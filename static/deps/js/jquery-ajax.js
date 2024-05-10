@@ -1,6 +1,16 @@
 // Когда html документ готов (прорисован)
 $(document).ready(function () {
 
+    document.getElementById('searchForm').addEventListener('submit', function (event) {
+        var inputValue = document.getElementById('searchInput').value.trim();
+        if (!inputValue) {
+            event.preventDefault(); // Отменяем отправку формы
+            document.getElementById('error').innerText = 'Введите поисковой запрос'; // Выводим сообщение об ошибке
+            return false;
+        }
+    });
+
+
     // берем в переменную элемент разметки с id jq-notification для оповещений от ajax
     var successMessage = $("#jq-notification");
 
@@ -102,8 +112,6 @@ $(document).ready(function () {
     });
 
 
-
-
     // Теперь + - количества товара
     // Обработчик события для уменьшения значения
     $(document).on("click", ".decrement", function () {
@@ -153,12 +161,12 @@ $(document).ready(function () {
             },
 
             success: function (data) {
-                 // Сообщение
+                // Сообщение
                 successMessage.html(data.message);
                 successMessage.fadeIn(400);
-                 // Через 7сек убираем сообщение
+                // Через 7сек убираем сообщение
                 setTimeout(function () {
-                     successMessage.fadeOut(400);
+                    successMessage.fadeOut(400);
                 }, 7000);
 
                 // Изменяем количество товаров в корзине

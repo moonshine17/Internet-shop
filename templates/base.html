@@ -40,16 +40,18 @@
                             Информация
                         </a>
                         <ul class="dropdown-menu bg-custom-color">
-{#                            <li><a class="dropdown-item  text-white" href="{% url "main:delivery" %}">Доставка и#}
-{#                                оплата</a></li>#}
-                            <li><a class="dropdown-item bg-custom-color text-white" href="{% url "main:con_information" %}">Контактная
+                            {#                            <li><a class="dropdown-item  text-white" href="{% url "main:delivery" %}">Доставка и#}
+                            {#                                оплата</a></li>#}
+                            <li><a class="dropdown-item bg-custom-color text-white"
+                                   href="{% url "main:con_information" %}">Контактная
                                 информация</a></li>
-                            <li><a class="dropdown-item bg-custom-color text-white" href="{% url "main:about" %}">Про нас</a></li>
+                            <li><a class="dropdown-item bg-custom-color text-white" href="{% url "main:about" %}">Про
+                                нас</a></li>
                         </ul>
                     </li>
-{#                    <li class="nav-item bg-custom-color">#}
-{#                        <a class="nav-link  text-white bg-custom-color" href="{% url "user:users_cart" %}">Корзина</a>#}
-{#                    </li>#}
+                    {#                    <li class="nav-item bg-custom-color">#}
+                    {#                        <a class="nav-link  text-white bg-custom-color" href="{% url "user:users_cart" %}">Корзина</a>#}
+                    {#                    </li>#}
                     {% if not user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link  text-white" href="{% url "user:login" %}">Войти</a>
@@ -61,30 +63,34 @@
                                 Мой профиль
                             </a>
                             <ul class="dropdown-menu bg-custom-color">
-                                <li><a class="dropdown-item  text-white bg-custom-color" href="{% url "user:users_cart" %}">Корзина</a>
+                                <li><a class="dropdown-item  text-white bg-custom-color"
+                                       href="{% url "user:users_cart" %}">Корзина</a>
                                 </li>
-                                <li><a class="dropdown-item  text-white bg-custom-color" href="{% url "user:profile" %}">Личный
+                                <li><a class="dropdown-item  text-white bg-custom-color"
+                                       href="{% url "user:profile" %}">Личный
                                     кабинет</a>
                                 </li>
                                 {% if user.is_admin or user.is_staff %}
-                                    <li><a class="dropdown-item  text-white bg-custom-color" href="{% url "admin:index" %}">Админ
+                                    <li><a class="dropdown-item  text-white bg-custom-color"
+                                           href="{% url "admin:index" %}">Админ
                                         панель</a></li>
                                 {% endif %}
                                 <li>
                                     <hr class="dropdown-divider ">
                                 </li>
-                                <li><a class="dropdown-item  text-white bg-custom-color" href="{% url "user:logout" %}">Выйти</a></li>
+                                <li><a class="dropdown-item  text-white bg-custom-color" href="{% url "user:logout" %}">Выйти</a>
+                                </li>
                             </ul>
                         </li>
                     {% endif %}
 
                 </ul>
-                <form class="d-flex" role="search" action="{% url "catalog:search" %}" method="get">
-                    <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search"
+                <form class="d-flex" role="search" id="searchForm" action="{% url "catalog:search" %}" method="get">
+                    <input class="form-control me-2" type="search" name="q" id="searchInput" placeholder="Search"
+                           aria-label="Search"
                            value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}">
                     <button class="btn search-btn text-white" type="submit">Поиск</button>
                 </form>
-
             </div>
         </div>
     </nav>
@@ -137,3 +143,4 @@
 </body>
 
 </html>
+
