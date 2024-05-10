@@ -7,16 +7,26 @@
 {% endblock css %}
 
 {% block modal_cart %}
-	{% include 'includes/cart_button.html' %}
+    {% include 'includes/cart_button.html' %}
 {% endblock %}
 
-
 {% block content %}
-    <div class="mt-5 pt-5 bg-white custom-shadow rounded">
-        <h2 class="m-2"><strong>{{ content }}</strong></h2>    
-        <p class="m-2">{{ text_on_page }}</p>
+    <div class="container mt-5 pt-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card bg-light border-0 shadow-lg">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4"><strong>О строительном магазине "OLI"</strong></h2>
+                        <p class="card-text">Мы рады приветствовать вас в нашем строительном магазине, который предлагает широкий ассортимент строительных материалов, инструментов и оборудования для выполнения любых строительных и ремонтных работ.</p>
+                        <p class="card-text">Наша компания предлагает высококачественные строительные материалы от ведущих производителей, что гарантирует надежность и долговечность вашего строительного проекта. Мы также предоставляем широкий выбор инструментов и оборудования, необходимого для эффективного выполнения любых строительных задач.</p>
+                        <p class="card-text">Наша команда профессионалов всегда готова предложить вам квалифицированную помощь и консультацию по выбору подходящих материалов и оборудования, а также поможет вам в решении любых вопросов, связанных с вашим строительным проектом.</p>
+                        <p class="card-text">Благодаря нашему опыту, высокому уровню обслуживания и конкурентоспособным ценам, мы стремимся стать вашим надежным партнером во всех ваших строительных и ремонтных нуждах.</p>
+                        <p class="card-text">Мы ценим ваше доверие и готовы предоставить вам лучший сервис и продукты высокого качества. Ждем вас в нашем магазине!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
 {% endblock content %}
 
 {% block footer %}
@@ -25,8 +35,4 @@
             <p class="m-0 text-center text-white">Copyright &copy; Udovichenko N 2024</p>
         </div>
     </footer>
-{% endblock footer %}   
-
-
-
-
+{% endblock footer %}

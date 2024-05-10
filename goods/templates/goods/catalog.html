@@ -65,7 +65,7 @@
             {% for product in goods %}
             <!-- Карта товара -->
             <div class="col-lg-4 col-md-6 p-4">
-                <div class="card border-primary rounded custom-shadow">
+                <div class="card border-primary rounded custom-shadow product-card">
                     {% if product.image %}
                         <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                     {% else %}
@@ -142,10 +142,10 @@
 {% endblock content %}
 
 
-{% block footer %}
-    <footer class="py-4 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Udovichenko N 2024</p>
-        </div>
-    </footer>
-{% endblock footer %}
+{#{% block footer %}#}
+{#    <footer class="py-4 bg-dark">#}
+{#        <div class="container">#}
+{#            <p class="m-0 text-center text-white">Copyright &copy; Udovichenko N 2024</p>#}
+{#        </div>#}
+{#    </footer>#}
+{#{% endblock footer %}#}

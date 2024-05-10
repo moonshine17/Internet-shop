@@ -1,5 +1,6 @@
 body {
-  background-image: url("../images/mainphoto.jpg");
+    background-color:#FFFF;
+  /*background-image: url("../images/mainphoto.jpg");*/
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
@@ -19,6 +20,10 @@ body {
   color: gray;
   font-size: 15px;
 }
+.card-text{
+    min-height:40px;
+}
+
 
 .badge.bg-warning.text-dark {
   position: absolute;
@@ -41,4 +46,51 @@ body {
   height: 200px; /* Установите желаемую фиксированную высоту */
   width: auto; /* Автоматическое масштабирование ширины для сохранения пропорций */
   object-fit: fill; /* Обрезание изображения, чтобы оно заполняло свой контейнер без искажений */
+}
+
+#centered-photo {
+    width: 100%; /* Установите нужную ширину */
+    height: auto; /* Автоматический расчет высоты */
+    max-width: 600px; /* Максимальная ширина фото */
+    max-height: 400px; /* Максимальная высота фото */
+}
+
+/* Для кнопки "Информация" */
+.btn-info.dropdown-toggle:focus,
+.btn-info.dropdown-toggle:active {
+    background-color: #6495ed; /* Изменение цвета фона */
+    /* Другие стили, если необходимо */
+}
+
+/* Для кнопки "Войти" */
+.btn-login.dropdown-toggle:focus,
+.btn-login.dropdown-toggle:active {
+    background-color: #6495ed; /* Изменение цвета фона */
+    /* Другие стили, если необходимо */
+}
+
+.bg-custom-color{
+  background-color: #363636; /* Изменение цвета фона */
+}
+
+.dropdown-item:hover{
+  background-color: #6495ed; /* Изменение цвета фона */
+}
+
+.search-btn:hover{
+  background-color: #6495ed; /* Изменение цвета фона */
+}
+
+.btn-group-margin-dec{
+  margin-right: 5px;
+}
+.input-group .btn-group-margin-inc {
+  padding-left: 5px;
+}
+.custom-btn{
+    background-color: #333333;
+}
+
+.custom-btn:hover{
+    background-color: #6495ed;
 }

@@ -1,5 +1,6 @@
 // Когда html документ готов (прорисован)
 $(document).ready(function () {
+
     // берем в переменную элемент разметки с id jq-notification для оповещений от ajax
     var successMessage = $("#jq-notification");
 

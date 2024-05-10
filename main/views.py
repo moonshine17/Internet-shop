@@ -8,7 +8,7 @@ def index(request):
 
 
     context = {
-        'title': 'Home',
+        'title': 'OLI',
         'content': 'Магазин строительных товаров OLI',  
     }
 

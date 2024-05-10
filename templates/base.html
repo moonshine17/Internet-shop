@@ -2,7 +2,7 @@
 {% load goods_tags %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "deps/css/bootstrap/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "deps/css/my_css.css" %}">
-    <!-- Стиль footer-a для главной страницы -->
     {% block css %}
 
     {% endblock css %}
@@ -25,9 +24,9 @@
 
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg" style="background-color: #363636;">
         <div class="container">
-            <a class="navbar-brand" href="{% url "main:index" %}">Home</a>
+            <a class="navbar-brand" style="color: white " href="{% url "main:index" %}">OLI</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -40,41 +39,41 @@
                            data-bs-toggle="dropdown" aria-expanded="false">
                             Информация
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item  text-white" href="{% url "main:delivery" %}">Доставка и
-                                оплата</a></li>
-                            <li><a class="dropdown-item  text-white" href="{% url "main:con_information" %}">Контактная
+                        <ul class="dropdown-menu bg-custom-color">
+{#                            <li><a class="dropdown-item  text-white" href="{% url "main:delivery" %}">Доставка и#}
+{#                                оплата</a></li>#}
+                            <li><a class="dropdown-item bg-custom-color text-white" href="{% url "main:con_information" %}">Контактная
                                 информация</a></li>
-                            <li><a class="dropdown-item  text-white" href="{% url "main:about" %}">Про нас</a></li>
+                            <li><a class="dropdown-item bg-custom-color text-white" href="{% url "main:about" %}">Про нас</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link  text-white" href="{% url "user:users_cart" %}">Корзина</a>
-                    </li>
+{#                    <li class="nav-item bg-custom-color">#}
+{#                        <a class="nav-link  text-white bg-custom-color" href="{% url "user:users_cart" %}">Корзина</a>#}
+{#                    </li>#}
                     {% if not user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link  text-white" href="{% url "user:login" %}">Войти</a>
                         </li>
                     {% else %}
                         <li class="nav-item dropdown ">
-                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                            <a class="nav-link dropdown-toggle text-white bg-custom-color" href="#" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Мой профиль
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item  text-white" href="{% url "user:users_cart" %}">Корзина</a>
+                            <ul class="dropdown-menu bg-custom-color">
+                                <li><a class="dropdown-item  text-white bg-custom-color" href="{% url "user:users_cart" %}">Корзина</a>
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="{% url "user:profile" %}">Личный
+                                <li><a class="dropdown-item  text-white bg-custom-color" href="{% url "user:profile" %}">Личный
                                     кабинет</a>
                                 </li>
                                 {% if user.is_admin or user.is_staff %}
-                                    <li><a class="dropdown-item  text-white" href="{% url "admin:index" %}">Админ
+                                    <li><a class="dropdown-item  text-white bg-custom-color" href="{% url "admin:index" %}">Админ
                                         панель</a></li>
                                 {% endif %}
                                 <li>
-                                    <hr class="dropdown-divider">
+                                    <hr class="dropdown-divider ">
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="{% url "user:logout" %}">Выйти</a></li>
+                                <li><a class="dropdown-item  text-white bg-custom-color" href="{% url "user:logout" %}">Выйти</a></li>
                             </ul>
                         </li>
                     {% endif %}
@@ -83,7 +82,7 @@
                 <form class="d-flex" role="search" action="{% url "catalog:search" %}" method="get">
                     <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search"
                            value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}">
-                    <button class="btn btn-outline-success text-white" type="submit">Поиск</button>
+                    <button class="btn search-btn text-white" type="submit">Поиск</button>
                 </form>
 
             </div>
@@ -96,7 +95,7 @@
         <div class="row mt-1 position-fixed z-3">
             <!-- Каталог -->
             <div class="dropdown mb-2">
-                <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
+                <button class="btn btn-secondary dropdown-toggle custom-btn" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                     Каталог
                     <img class="mx-1" src="{% static "deps/icons/grid-fill.svg" %}" alt="Catalog Icon" width="16"
@@ -120,7 +119,6 @@
     <div class="container">
         <div class="row mt-1">
             <div class="col-lg-2">
-                <!-- Пустой блок на Ваше усмотрение -->
             </div>
             <div class="col-lg-10">
                 <!-- Контент на странице -->
@@ -133,7 +131,6 @@
 </section>
 {% block footer %}{% endblock footer %}
 <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
-<!--TODO Проблема! При удалении jquery-events и переносе его кода в jquery-ajax перестаёт открываться корзина-->
 <script src="{% static "deps/js/jquery-ajax.js" %}"></script>
 <script src="{% static "deps/js/bootstrap/bootstrap.bundle.min.js" %}"></script>
 
