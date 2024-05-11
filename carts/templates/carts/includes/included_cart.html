@@ -31,7 +31,7 @@
                         <div class="col p-0">
                             <p>x {{ cart.product.total_price }} = </p>
                         </div>
-                        <div class="col p-0"><strong> {{ cart.products_price }} $</strong></div>
+                        <div class="col p-0"><strong> {{ cart.products_price }} ₽</strong></div>
                         <div class="col p-0">
                             <a href="{% url "cart:cart_remove" %}" class="remove-from-cart"
                                data-cart-id="{{ cart.id }}">
@@ -48,10 +48,10 @@
     <div class="card mb-3 shadow-lg">
         <div class="card-footer">
             <p class="float-left">Итого <strong>{{ carts.total_quantity }}</strong> товар(а) на сумму</p>
-            <h4 class="float-left"><strong>{{ carts.total_price }} $</strong></h4>
+            <h4 class="float-left"><strong>{{ carts.total_price }} ₽</strong></h4>
         </div>
     </div>
-    {% if carts and not orders %}
+    {% if not is_order %}
         <a class="btn btn-dark" href="{% url 'orders:create_order' %}">
             Оформить заказ
         </a>

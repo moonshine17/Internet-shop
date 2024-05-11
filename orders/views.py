@@ -73,9 +73,9 @@ def create_order(request):
         form = CreateOrderForm(initial=initial)
 
     context = {
-        'title': 'Home - Оформление заказа',
+        'title': 'OLI - Оформление заказа',
         'form': form,
-        'orders': True,
+        'is_order': True,
     }
     return render(request, 'orders/create_order.html', context=context)
 
@@ -91,6 +91,6 @@ def send_order_confirmation_email(request, message):
         server.login(sender, password)
         server.sendmail(sender, user_email, email_message)
 
-        return "The message was sent successfully!"
+        return "Сообщение было успешно отправлено!"
     except Exception as _ex:
-        return f"{_ex}\nCheck your login or password please!",
+        return f"{_ex}\nПроверьте ваши логин и пароль!",
