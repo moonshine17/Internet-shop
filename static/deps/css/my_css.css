@@ -1,51 +1,52 @@
 body {
-    background-color:#FFFF;
-  /*background-image: url("../images/mainphoto.jpg");*/
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
-  height: 100%;
+    background-color: #FFFF;
+    /*background-image: url("../images/mainphoto.jpg");*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
 }
 
 .dropdown-toggle::after {
-  content: none;
+    content: none;
 }
 
 .custom-shadow {
-  box-shadow: 5px 5px 25px 19px #000000;
+    box-shadow: 5px 5px 25px 19px #000000;
 }
 
 .product_id {
-  color: gray;
-  font-size: 15px;
+    color: gray;
+    font-size: 15px;
 }
-.card-text{
-    min-height:40px;
+
+.card-text {
+    min-height: 40px;
 }
 
 
 .badge.bg-warning.text-dark {
-  position: absolute;
-  top: 10px;
-  right: 5px;
-  z-index: 1;
-  padding: 5px 10px;
-  border-radius: 3px;
-  font-size: 1rem;
-  box-shadow: 2px 2px 15px 9px #000000;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    z-index: 1;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 1rem;
+    box-shadow: 2px 2px 15px 9px #000000;
 }
 
 .badge-banner {
-  top: 80%;
-  border-radius: 15px;
-  font-size: 0.7rem;
+    top: 80%;
+    border-radius: 15px;
+    font-size: 0.7rem;
 }
 
 .card-img-top {
-  height: 200px; /* Установите желаемую фиксированную высоту */
-  width: auto; /* Автоматическое масштабирование ширины для сохранения пропорций */
-  object-fit: fill; /* Обрезание изображения, чтобы оно заполняло свой контейнер без искажений */
+    height: 200px; /* Установите желаемую фиксированную высоту */
+    width: auto; /* Автоматическое масштабирование ширины для сохранения пропорций */
+    object-fit: fill; /* Обрезание изображения, чтобы оно заполняло свой контейнер без искажений */
 }
 
 #centered-photo {
@@ -69,28 +70,31 @@ body {
     /* Другие стили, если необходимо */
 }
 
-.bg-custom-color{
-  background-color: #363636; /* Изменение цвета фона */
+.bg-custom-color {
+    background-color: #363636; /* Изменение цвета фона */
 }
 
-.dropdown-item:hover{
-  background-color: #6495ed; /* Изменение цвета фона */
+.dropdown-item:hover {
+    background-color: #6495ed; /* Изменение цвета фона */
 }
 
-.search-btn:hover{
-  background-color: #6495ed; /* Изменение цвета фона */
+.search-btn:hover {
+    background-color: #6495ed; /* Изменение цвета фона */
 }
 
-.btn-group-margin-dec{
-  margin-right: 5px;
+.btn-group-margin-dec {
+    margin-right: 5px;
 }
+
 .input-group .btn-group-margin-inc {
-  padding-left: 5px;
+    padding-left: 5px;
 }
-.custom-btn{
+
+.custom-btn {
     background-color: #333333;
 }
 
-.custom-btn:hover{
+.custom-btn:hover {
     background-color: #6495ed;
 }
+

@@ -12,11 +12,64 @@
 
 
 {% block content %}
-    <h1 class="mt-5 pt-5" style="color: #6995ed"><strong>{{ content }}</strong></h1>
-    <div id="centered-photo">
-        <img src="{% static "deps/images/main_photo2.png" %}" alt="Главное фото">
-    </div>
+{#    <h1 class="mt-5 pt-5" style="color: #6995ed"><strong>{{ content }}</strong></h1>#}
+{#    <div id="centered-photo">#}
+{#        <img src="{% static "deps/images/main_photo2.png" %}" alt="Главное фото">#}
+{#    </div>#}
+{#    <div class="container mt-5">#}
+{#        <h1 class="display-4 text-center mb-4" style="color: #6995ed;"><strong>{{ content }}</strong></h1>#}
+{#        <div class="row">#}
+{#            <div class="col-md-6 offset-md-3">#}
+{#                <div class="card">#}
+{#                    <img src="{% static "deps/images/main_photo2.png" %}" class="card-img-top" alt="Main Photo">#}
+{#                    <div class="card-body">#}
+{#                        <p class="card-text">Добро пожалось</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
 
+        <div class="container mt-5">
+        <h1 class="display-4 mb-4" style="color: #6995ed; text-align: left;"><strong>{{ content }}</strong></h1>
+        <div class="row">
+            <div class="col-md-8">
+                <p>Добро пожаловать на наш сайт! Мы предлагаем широкий ассортимент товаров и услуг, чтобы удовлетворить ваши потребности. Наши продукты высокого качества помогут вам в повседневных делах и развлечениях. Ознакомьтесь с нашим каталогом и сделайте ваш выбор!</p>
+            </div>
+            <div class="col-md-4">
+                <img src="{% static "deps/images/main_photo2.png" %}" class="img-fluid" alt="Main Photo">
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Новости</h5>
+                        <p class="card-text">Узнайте о последних новостях и событиях.</p>
+                        <a href="#" class="btn btn-primary">Читать далее</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Популярные товары</h5>
+                        <p class="card-text">Посмотрите наши самые популярные товары.</p>
+                        <a href="#" class="btn btn-primary">Купить сейчас</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Предстоящие мероприятия</h5>
+                        <p class="card-text">Следите за нашими предстоящими мероприятиями и акциями.</p>
+                        <a href="#" class="btn btn-primary">Посмотреть события</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
 
 {% block footer %}
