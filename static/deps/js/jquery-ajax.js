@@ -1,6 +1,6 @@
 // Когда html документ готов (прорисован)
 $(document).ready(function () {
-
+    //поиск
     document.getElementById('searchForm').addEventListener('submit', function (event) {
         var inputValue = document.getElementById('searchInput').value.trim();
         if (!inputValue) {

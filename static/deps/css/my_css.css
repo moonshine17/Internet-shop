@@ -98,3 +98,11 @@ body {
     background-color: #6495ed;
 }
 
+.form-container button {
+  background-color: #333333;
+  color: white;
+}
+
+.form-container button:hover {
+  background-color: #6495ed;
+}

@@ -19,6 +19,10 @@
 
             <form action="
 
+
+
+
+
                     {% if request.Get.q %}{% url 'catalog:search' %}{% else %}{% url 'catalog:index' slug_url %}{% endif %}"
                   method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
                 <div class="form-check text-white mx-3 mb-3">
@@ -82,22 +86,29 @@
                                     href="{% url "catalog:product" product.slug %}">{{ product.name }}</a></h5>
                             <p class="card-text">{{ product.description|truncatechars:100 }}</p>
                         </div>
+                        <div style="padding-left: 8px; {% if product.quantity < 5 %}color: red;{% endif %}">
+                            {% if product.quantity > 100 %}
+                                Осталось: Много
+                            {% else %}
+                                Осталось: {{ product.quantity }}
+                            {% endif %}
+                        </div>
                         <div class="card-footer d-flex justify-content-between align-items-center">
                             {% if product.discount %}
-                                <div>
-                                    <span class="badge bg-warning text-dark">Скидка {{ product.discount }} %</span>
-                                </div>
-                                <div>
-                                    <s class="text-muted">{{ product.price }} ₽</s>
-                                    <span class="fw-bold">{{ product.total_price }} ₽</span>
+                                <div class="d-flex flex-column text-center w-100">
+                                    <span class="badge bg-warning text-dark mb-1">Скидка {{ product.discount }} %</span>
+                                    <div class="d-flex justify-content-center">
+                                        <s class="text-muted me-2">{{ product.price }} ₽</s>
+                                        <span class="fw-bold">{{ product.total_price }} ₽</span>
+                                    </div>
                                 </div>
                             {% else %}
-                                <div>
+                                <div class="text-center w-100">
                                     <span class="fw-bold">{{ product.price }} ₽</span>
                                 </div>
                             {% endif %}
-                            <div>
-                                <a href="{% url "cart:cart_add" %}" class="btn btn-sm add-to-cart"
+                            <div class="d-flex flex-column">
+                                <a href="{% url "cart:cart_add" %}" class="btn btn-sm add-to-cart mb-2"
                                    data-product-id="{{ product.id }}">
                                     {% csrf_token %}
                                     <img src="{% static "deps/icons/cart-plus.svg" %}" alt="Add to Cart" width="24"
