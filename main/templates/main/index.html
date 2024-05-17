@@ -33,7 +33,8 @@
         <h1 class="display-4 mb-4" style="color: #6995ed; text-align: left;"><strong>{{ content }}</strong></h1>
         <div class="row">
             <div class="col-md-8">
-                <p>Добро пожаловать на наш сайт! Мы предлагаем широкий ассортимент товаров и услуг, чтобы удовлетворить ваши потребности. Наши продукты высокого качества помогут вам в повседневных делах и развлечениях. Ознакомьтесь с нашим каталогом и сделайте ваш выбор!</p>
+                <p>Добро пожаловать в наш строительный магазин! У нас вы найдете все необходимое для строительства, ремонта и обустройства вашего дома.
+                    Широкий выбор качественных материалов и инструментов ждет вас здесь. Доверьте нам свои проекты, и мы поможем воплотить ваши идеи в реальность.</p>
             </div>
             <div class="col-md-4">
                 <img src="{% static "deps/images/main_photo2.png" %}" class="img-fluid" alt="Main Photo">
@@ -44,9 +45,9 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Новости</h5>
-                        <p class="card-text">Узнайте о последних новостях и событиях.</p>
-                        <a href="#" class="btn btn-primary">Читать далее</a>
+                        <h5 class="card-title">Про нас</h5>
+                        <p class="card-text">Узнайте о нас больше!</p>
+                        <a href="{% url 'main:about' %}" class="btn btn-primary">Посмотреть события</a>
                     </div>
                 </div>
             </div>
@@ -55,16 +56,16 @@
                     <div class="card-body">
                         <h5 class="card-title">Популярные товары</h5>
                         <p class="card-text">Посмотрите наши самые популярные товары.</p>
-                        <a href="#" class="btn btn-primary">Купить сейчас</a>
+                        <a href="{% url 'catalog:index' 'all' %}" class="btn btn-primary">Купить сейчас</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Предстоящие мероприятия</h5>
-                        <p class="card-text">Следите за нашими предстоящими мероприятиями и акциями.</p>
-                        <a href="#" class="btn btn-primary">Посмотреть события</a>
+                        <h5 class="card-title">Контактная информация</h5>
+                        <p class="card-text">Для связи с нами используйте</p>
+                        <a href="{% url 'main:con_information' %}" class="btn btn-primary">Читать далее</a>
                     </div>
                 </div>
             </div>

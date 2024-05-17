@@ -27,11 +27,12 @@
     <nav class="navbar navbar-expand-lg" style="background-color: #363636;">
         <div class="container">
             <a class="navbar-brand" style="color: white " href="{% url "main:index" %}">OLI</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown ">
@@ -97,47 +98,47 @@
 </header>
 <section>
     <div class="container">
-    <!-- Каталог и корзина -->
-    <div class="container">
-        <!-- Каталог и корзина с фиксированным расположением на странице -->
-        <div class="row mt-1 position-fixed z-3">
-            <!-- Каталог -->
-            <div class="dropdown mb-2">
-                <button class="btn btn-secondary dropdown-toggle custom-btn" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                    Каталог
-                    <img class="mx-1" src="{% static "deps/icons/grid-fill.svg" %}" alt="Catalog Icon" width="16"
-                         height="16">
-                </button>
-                <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
-                    {% tag_categories as categories %}
-                    {% for category in categories %}
-                        <li><a class="dropdown-item text-white"
-                               href="{% url "catalog:index" category.slug %}">{{ category.name }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <!-- Значек корзины, вызывает модальное окно -->
-            {% block modal_cart %}
-            {% endblock %}
-            <!-- Закончилась разметка модального окна -->
-        </div>
-    </div>
-
-
-    <!-- Контент -->
-    <div class="container">
-        <div class="row mt-1">
-            <div class="col-lg-2">
-            </div>
-            <div class="col-lg-10">
-                <!-- Контент на странице -->
-                {% include "includes/notifications.html" %}
-                {% block content %}
-                {% endblock content %}
+        <!-- Каталог и корзина -->
+        <div class="container">
+            <!-- Каталог и корзина с фиксированным расположением на странице -->
+            <div class="row mt-1 position-fixed z-3">
+                <!-- Каталог -->
+                <div class="dropdown mb-2">
+                    <button class="btn btn-secondary dropdown-toggle custom-btn" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        Каталог
+                        <img class="mx-1" src="{% static "deps/icons/grid-fill.svg" %}" alt="Catalog Icon" width="16"
+                             height="16">
+                    </button>
+                    <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
+                        {% tag_categories as categories %}
+                        {% for category in categories %}
+                            <li><a class="dropdown-item text-white"
+                                   href="{% url "catalog:index" category.slug %}">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- Значек корзины, вызывает модальное окно -->
+                {% block modal_cart %}
+                {% endblock %}
+                <!-- Закончилась разметка модального окна -->
             </div>
         </div>
-    </div>
+
+
+        <!-- Контент -->
+        <div class="container">
+            <div class="row mt-1">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-10">
+                    <!-- Контент на странице -->
+                    {% include "includes/notifications.html" %}
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            </div>
+        </div>
 </section>
 {% block footer %}{% endblock footer %}
 <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
