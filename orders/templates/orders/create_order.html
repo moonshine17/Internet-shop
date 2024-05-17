@@ -41,59 +41,14 @@
                                 {% endif %}
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label id="id_phone_number" for="id_phone_number" class="form-label">Номер
-                                    телефона*:</label>
-                                <input type="text" class="form-control" id="id_phone_number" name="phone_number"
-                                       value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
-                                       placeholder="В формате: XXX-XXX-XX-XX"
+                                <label for="id_phone" class="form-label">Номер телефона*:</label>
+                                <input type="text" class="form-control" id="id_phone" name="phone"
+                                       value="{{ form.phone.value|default_if_none:'' }}"
+                                       placeholder="В формате: +7 (XXX) XXX-XX-XX"
                                        required>
-                                {% if form.phone_number.errors %}
-                                    <div class="alert alert-danger alert-dismissible fade show">{{ form.phone_number.errors }}</div>
+                                {% if form.phone.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{ form.phone.errors }}</div>
                                 {% endif %}
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="delivery" class="form-label">Способ доставки: </label>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="requires_delivery"
-                                           id="id_requires_delivery" value="1" checked>
-                                    <label class="form-check-label" for="id_requires_delivery">Нужна
-                                        доставка</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="requires_delivery"
-                                           id="id_requires_pickup" value="0">
-                                    <label class="form-check-label" for="id_requires_pickup">Самовывоз</label>
-                                </div>
-                            </div>
-                            <div class="mb-3" id="deliveryAddressField">
-                                <label for="id_delivery_address" class="form-label">Адрес доставки*:</label>
-                                <textarea class="form-control" id="id_delivery_address"
-                                          value=""
-                                          name="delivery_address" rows="2"
-                                          {% if form.requires_delivery.value == "1" %}required{% endif %}></textarea>
-                                {% if form.delivery_address.errors %}
-                                    <div class="alert alert-danger alert-dismissible fade show">{{ form.delivery_address.errors }}</div>
-                                {% endif %}
-                            </div>
-
-
-                            <div class="col-md-12 mb-3">
-                                <label class="form-label">Способ оплаты: </label>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="payment_on_get"
-                                           id="id_payment_on_get" value="0" checked>
-                                    <label class="form-check-label" for="id_payment_on_get">Оплата
-                                        картой</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="payment_on_get"
-                                           id="id_payment_on_get" value="1">
-                                    <label class="form-check-label" for="id_payment_on_get">Наличными/картой
-                                        при плучении</label>
-                                    {% if form.payment_on_get.errors %}
-                                        <div class="alert alert-danger alert-dismissible fade show">{{ form.payment_on_get.errors }}</div>
-                                    {% endif %}
-                                </div>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-dark">Оформить заказ</button>
@@ -106,9 +61,9 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/jquery.inputmask.min.js"></script>
-<script>
-    $(document).ready(function () {
-        // Применяем маску к полю номера телефона
-        $('#id_phone_number').inputmask('+7(999)-999-99-99');
-    });
-</script>
+{#<script>#}
+{#    $(document).ready(function () {#}
+{#        // Применяем маску к полю номера телефона#}
+{#        $('#id_phone_').inputmask('+7 (999) 999-99-99');#}
+{#    });#}
+{#</script>#}

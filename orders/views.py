@@ -28,12 +28,9 @@ def create_order(request):
                         # Создать заказ
                         order = Order.objects.create(
                             user=user,
-                            phone_number=form.cleaned_data['phone_number'],
-                            requires_delivery=form.cleaned_data['requires_delivery'],
-                            delivery_address=form.cleaned_data['delivery_address'],
-                            payment_on_get=form.cleaned_data['payment_on_get'],
+                            phone=form.cleaned_data['phone'],
                         )
-                        message = "Ваш заказ:\n" # Начать с байтовой строки
+                        message = "Ваш заказ:\n"  # Начать с байтовой строки
                         # Создать заказанные товары
                         for cart_item in cart_items:
                             product = cart_item.product
@@ -68,6 +65,7 @@ def create_order(request):
         initial = {
             'first_name': request.user.first_name,
             'last_name': request.user.last_name,
+            'phone': request.user.phone,
         }
 
         form = CreateOrderForm(initial=initial)
@@ -78,6 +76,7 @@ def create_order(request):
         'is_order': True,
     }
     return render(request, 'orders/create_order.html', context=context)
+
 
 def send_order_confirmation_email(request, message):
     sender = "udonik0604@mail.ru"
@@ -94,4 +93,3 @@ def send_order_confirmation_email(request, message):
         return "Сообщение было успешно отправлено!"
     except Exception as _ex:
         return f"{_ex}\nПроверьте ваши логин и пароль!",
-

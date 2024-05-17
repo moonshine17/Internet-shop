@@ -4,6 +4,7 @@ from django.db.models import Prefetch
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
+import re
 
 from carts.models import Cart
 from users.forms import UserLoginForm, UserRegistrationForm, ProfileForm

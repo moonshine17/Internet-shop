@@ -1,3 +1,5 @@
+import re
+
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm, PasswordResetForm
 
@@ -41,13 +43,22 @@ class ProfileForm(UserChangeForm):
             "first_name",
             "last_name",
             "username",
-            "email",)
+            "email",
+            "phone",
+        )
 
     image = forms.ImageField(required=False)
     first_name = forms.CharField()
     last_name = forms.CharField()
     username = forms.CharField()
     email = forms.CharField()
+    phone = forms.CharField()
+
+    def clean_phone(self):
+        phone = self.cleaned_data.get('phone')
+        if not re.match(r"^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$", phone):
+            raise forms.ValidationError("Неверный формат номера телефона. Формат должен быть: +7 (XXX) XXX-XX-XX")
+        return phone
 
 
 class MyPasswordResetForm(PasswordResetForm):
