@@ -99,10 +99,11 @@ body {
 }
 
 .form-container button {
-  background-color: #333333;
-  color: white;
+    background-color: #333333;
+    color: white;
 }
 
 .form-container button:hover {
-  background-color: #6495ed;
+    background-color: #6495ed;
 }
+

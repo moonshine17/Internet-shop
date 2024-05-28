@@ -2,49 +2,54 @@
 {% load static %}
 
 {% block modal_cart %}
-	{% include 'includes/cart_button.html' %}
+    {% include 'includes/cart_button.html' %}
 {% endblock %}
 
 {% block content %}
-    <!-- Контент на странице -->
     <div class="container mt-5">
         <div class="card mb-4 custom-shadow">
-            <div class="row">
+            <div class="row g-0">
                 <!-- Миниатюры -->
-                <div class="col-md-4">
-                    <img src="{{ product.image.url }}"
-                        class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
+                <div class="col-md-6 text-center">
+                    <img src="{{ product.image.url }}" class="img-thumbnail product-image" data-bs-toggle="modal" data-bs-target="#imageModal1" alt="{{ product.name }}">
                 </div>
-                <div class="col-md-4 ">
-                    <p class="product_id mt-3">id: {{ product.display_id }}</p>
-                </div>
-                <!-- Увеличить изображение в модальном окне -->
-                <div class="modal fade" id="imageModal1" tabindex="-1"
-                    aria-labelledby="imageModal1Label" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="imageModal1Label">{{ product.name }}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Закрыть"></button>
-                            </div>
-                            <div class="modal-body">
-                                <img src="{{ product.image.url }}"
-                                    class="img-fluid" alt="Изображение 1">
-                            </div>
-                        </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center p-4">
+                    <p class="product_id">ID: {{ product.display_id }}</p>
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+                    {% if product.discount %}
+                        <p class="card-text">
+                            <span class="badge bg-warning text-dark">Скидка {{ product.discount }}%</span>
+                        </p>
+                        <p class="card-text">
+                            <s class="text-muted">{{ product.price }} ₽</s>
+                            <strong>{{ product.total_price }} ₽</strong>
+                        </p>
+                    {% else %}
+                        <p class="card-text">Цена: <strong>{{ product.total_price }} ₽</strong></p>
+                    {% endif %}
+                    <p class="card-text">Количество: <strong>{{ product.quantity }}</strong></p>
+                    <div class="mt-3">
+                        <a href="{% url 'cart:cart_add' %}" class="btn btn-dark add-to-cart" data-product-id="{{ product.id }}">
+                            {% csrf_token %}
+                            Добавить в корзину
+                        </a>
                     </div>
                 </div>
             </div>
-            <!-- Описание товара -->
-            <div class="card-body">
-                <p class="card-text">Цена: <strong>{{ product.total_price }} ₽</strong></p>
-                <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-text">{{ product.description }}</p>
-                <a href="{% url 'cart:cart_add' %}" class="btn btn-dark add-to-cart" 
-                   data-product-id="{{ product.id }}">
-                    {% csrf_token %}
-                    Добавить в корзину</a>
+        </div>
+        <!-- Увеличить изображение в модальном окне -->
+        <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModal1Label" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageModal1Label">{{ product.name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
