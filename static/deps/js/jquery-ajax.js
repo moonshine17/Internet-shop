@@ -9,7 +9,7 @@ $(document).ready(function () {
             return false;
         }
     });
-
+    
 
     // берем в переменную элемент разметки с id jq-notification для оповещений от ajax
     var successMessage = $("#jq-notification");

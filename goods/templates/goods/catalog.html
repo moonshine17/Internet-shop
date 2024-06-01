@@ -17,11 +17,11 @@
                 Фильтры
             </button>
 
-            <form action="{% if request.Get.q %}{% url 'catalog:search' %}{% else %}{% url 'catalog:index' slug_url %}{% endif %}"
-                  method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+            <form id="filter-form" action="{% if request.Get.q %}{% url 'catalog:search' %}{% else %}{% url 'catalog:index' slug_url %}{% endif %}"
+                method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
                 <div class="form-check text-white mx-3 mb-3">
                     <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on"
-                           {% if request.GET.on_sale == "on" %}checked{% endif %}>
+                        {% if request.GET.on_sale == "on" %}checked{% endif %}>
                     {% if request.Get.q %}
                         <input type="hidden" name="q" value="{{ request.GET.q }}">
                     {% endif %}
@@ -32,31 +32,43 @@
 
                 <div class="form-check text-white mx-3">
                     <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default"
-                           {% if not request.GET.order_by or request.GET.order_by == 'default' %}checked{% endif %}>
+                        {% if not request.GET.order_by or request.GET.order_by == 'default' %}checked{% endif %}>
                     <label class="form-check-label" for="flexRadioDefault1">
                         По умолчанию
                     </label>
                 </div>
                 <div class="form-check text-white mx-3">
                     <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2" value="price"
-                           {% if request.GET.order_by == "price" %}checked{% endif %}>
+                        {% if request.GET.order_by == "price" %}checked{% endif %}>
                     <label class="form-check-label" for="flexRadioDefault2">
                         От дешевых к дорогим
                     </label>
                 </div>
                 <div class="form-check text-white mx-3">
                     <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3" value="-price"
-                           {% if request.GET.order_by == "-price" %}checked{% endif %}>
+                        {% if request.GET.order_by == "-price" %}checked{% endif %}>
                     <label class="form-check-label" for="flexRadioDefault3">
                         От дорогих к дешевым
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-primary mx-3">Применить</button>
+                {% comment %} <button type="submit" class="btn btn-primary mx-3">Применить</button> {% endcomment %}
             </form>
         </div>
 
-
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const filterForm = document.getElementById('filter-form');
+                const inputs = filterForm.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+        
+                inputs.forEach(input => {
+                    input.addEventListener('change', function () {
+                        filterForm.submit();
+                    });
+                });
+            });
+        </script>
+        
         {% if request.GET.q %}
             <h3 class="mt-4">Результаты поиска по запросу "{{ request.GET.q }}"</h3>
             {% if not goods %}
